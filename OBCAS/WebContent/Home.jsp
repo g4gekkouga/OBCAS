@@ -25,6 +25,7 @@
 
     <!-- Main CSS-->
     <link href="css/main2.css" rel="stylesheet" media="all">
+     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
 
 <body>
@@ -33,40 +34,22 @@
             <div class="card card-3">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">Patient Registration </h2>
-                    <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Name" name="name">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="UserName" name="username">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="password" placeholder="Password" name="password">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3 js-datepicker" type="text" placeholder="Birthdate" name="birthday">
-                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                        </div>
-                        <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="gender">
-                                    <option disabled="disabled" selected="selected">Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-3" type="text" placeholder="Phone" name="phone">
+                    <h1 class="title">Welcome to OBCAS </h1>
+                    <form>
+                    	<div class="text-center">
+							<span class="txt1"> 
+							<h4>
+							Continue as : </h4>
+							</span>
+						</div>div>
+                        <div class="p-t-10">
+                            <input type="button" class="btn btn--pill btn--green" value="Patient" onclick="window.location.href='patientLogin.jsp'" />
                         </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            <input type="button" class="btn btn--pill btn--green" value="Doctor" onclick="window.location.href='doctorLogin.jsp'" />
+                        </div>
+                        <div class="p-t-10">
+                            <input type="button" class="btn btn--pill btn--green" value="Admin" onclick="window.location.href='adminLogin.jsp'" />
                         </div>
                     </form>
                 </div>

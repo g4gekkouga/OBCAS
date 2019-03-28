@@ -35,7 +35,7 @@
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-b-33">
-						Patient Login
+						Admin Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
@@ -54,16 +54,6 @@
 						<button class="login100-form-btn">
 							Sign in
 						</button>
-					</div>
-
-					<div class="text-center">
-						<span class="txt1" >
-							Create an account?
-						</span>
-
-						<a href="signupPatient.jsp" class="txt2 hov1">
-							Sign up
-						</a>
 					</div>
 				</form>
 			</div>
