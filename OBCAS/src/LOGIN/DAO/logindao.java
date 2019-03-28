@@ -4,9 +4,9 @@ import java.sql.PreparedStatement;
 
 public class logindao {
 	String sql="select * from info where first_name=? ";
-	String url="jdbc:mysql://localhost:3306/patients";
+	String url="jdbc:mysql://localhost:9999/patients";
 	String name="root";
-	String password="Mahi&1802";
+	String password="akita666";
 	public boolean check (String uname,String pass)
 	{
 		try
