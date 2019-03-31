@@ -11,7 +11,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>Patient Signup</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -34,7 +34,7 @@
                 <div class="card-heading"></div>
                 <div class="card-body">
                     <h2 class="title">Patient Registration </h2>
-                    <form method="POST">
+                    <form action="RegisterP" method="post">
                         <div class="input-group">
                             <input class="input--style-3" type="text" placeholder="Name" name="name">
                         </div>
@@ -66,7 +66,7 @@
                             <input class="input--style-3" type="text" placeholder="Phone" name="phone">
                         </div>
                         <div class="p-t-10">
-                            <button class="btn btn--pill btn--green" type="submit">Submit</button>
+                            <button class="btn btn--pill btn--green" type="submit" value="RegisterP">Submit</button>
                         </div>
                     </form>
                 </div>
