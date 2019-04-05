@@ -1,4 +1,4 @@
-package mylogin;
+package page;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpSession;
 import LOGIN.DAO.*;
 
 /**
- * Servlet implementation class LoginP
+ * Servlet implementation class Delete_Doc
  */
-@WebServlet("/LoginP")
-public class LoginP extends HttpServlet {
+@WebServlet("/Delete_Doc")
+public class Delete_Doc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginP() {
+    public Delete_Doc() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,25 +39,24 @@ public class LoginP extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		String uname = request.getParameter("uname");
-		String upass = request.getParameter("upass");
-		logindao dao =new logindao();
+		String dname = request.getParameter("doctor_name");
 		
+		logindao dao =new logindao();
 		dao.connectDB();
 		
-		if(dao.checkPatient(uname, upass))
+		if(dao.remove_doc(dname))
 		{
 			HttpSession session=request.getSession();
-			session.setAttribute("username",uname);
+			session.setAttribute("username",dname);
 			
-			response.sendRedirect("patientwelcome.jsp");
+			response.sendRedirect("adminwelcome.jsp?admin_name='Doctor Removed'");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			HttpSession session=request.getSession();
+			session.setAttribute("username",dname);
+			
+			response.sendRedirect("adminwelcome.jsp?admin_name='Doctor Doesnt Exist'");
 		}
-		
-		
-		
 	}
 
 }

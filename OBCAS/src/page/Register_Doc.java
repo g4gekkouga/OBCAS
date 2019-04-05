@@ -1,4 +1,4 @@
-package mylogin;
+package page;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,18 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import LOGIN.DAO.*;
-
 /**
- * Servlet implementation class LoginP
+ * Servlet implementation class Register_Doc
  */
-@WebServlet("/LoginP")
-public class LoginP extends HttpServlet {
+@WebServlet("/Register_Doc")
+public class Register_Doc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginP() {
+    public Register_Doc() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,24 +38,25 @@ public class LoginP extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		String uname = request.getParameter("uname");
-		String upass = request.getParameter("upass");
-		logindao dao =new logindao();
+		String dname = request.getParameter("doc_name");
+		String duname = request.getParameter("doc_uname");
+		String dpass = request.getParameter("doc_pass");
+		String dspec = request.getParameter("doc_spec");
+		String demail = request.getParameter("doc_email");
 		
+		logindao dao =new logindao();
 		dao.connectDB();
 		
-		if(dao.checkPatient(uname, upass))
+		if(dao.register_doctor(dname, duname, dpass, dspec, demail))
 		{
 			HttpSession session=request.getSession();
-			session.setAttribute("username",uname);
+			session.setAttribute("username",dname);
 			
-			response.sendRedirect("patientwelcome.jsp");
+			response.sendRedirect("adminwelcome.jsp?admin_name='Registered'");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("adminLogin.jsp");
 		}
-		
-		
 		
 	}
 

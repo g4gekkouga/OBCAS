@@ -1,4 +1,4 @@
-package mylogin;
+package page;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpSession;
 import LOGIN.DAO.*;
 
 /**
- * Servlet implementation class LoginP
+ * Servlet implementation class Delete_Pat
  */
-@WebServlet("/LoginP")
-public class LoginP extends HttpServlet {
+@WebServlet("/Delete_Pat")
+public class Delete_Pat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginP() {
+    public Delete_Pat() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,25 +39,24 @@ public class LoginP extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
-		String uname = request.getParameter("uname");
-		String upass = request.getParameter("upass");
-		logindao dao =new logindao();
+		String pname = request.getParameter("patient_name");
 		
+		logindao dao =new logindao();
 		dao.connectDB();
 		
-		if(dao.checkPatient(uname, upass))
+		if(dao.remove_pat(pname))
 		{
 			HttpSession session=request.getSession();
-			session.setAttribute("username",uname);
+			session.setAttribute("username",pname);
 			
-			response.sendRedirect("patientwelcome.jsp");
+			response.sendRedirect("adminwelcome.jsp?admin_name='Patient Removed'");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			HttpSession session=request.getSession();
+			session.setAttribute("username",pname);
+			
+			response.sendRedirect("adminwelcome.jsp?admin_name='Patient Doesnt Exist'");
 		}
-		
-		
-		
 	}
 
 }

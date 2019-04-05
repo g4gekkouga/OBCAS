@@ -280,17 +280,129 @@ public class logindao {
 			return false;
 		}
 		
+}
+
+	public boolean register_doctor(String dname, String duname, String dpass, String dspec, String demail) {
 		
+		try
+		{
+	
+			sql = "insert into doctorinfo values(NULL, ?, ?, ?, ?, ?);";
+
+			PreparedStatement st=con.prepareStatement(sql);
+			
+			st.setString(1, dname);
+			st.setString(2, duname);
+			st.setString(3, dpass);
+			st.setString(4, demail);
+			st.setString(5, dspec);
+			
+			st.executeUpdate();
+			
+			String sql1 = "select * from doctorinfo where uname=? and upass=?" ;
+			
+			PreparedStatement st1=con.prepareStatement(sql1);
+			
+			st1.setString(1, duname);
+			st1.setString(2, dpass);
+			
+			ResultSet rs1 = st1.executeQuery();
+			
+			if(rs1.next())
+			{
+				return true;
+			}
+			
+			else return false;
+		}
+		catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return false;
+		}
 		
+	}
+	
+	public boolean remove_doc(String dname) {
 		
-		
-		
-		
-		
+		try
+		{
+	
+			sql = "delete from doctorinfo where name=? ;";
+
+			PreparedStatement st=con.prepareStatement(sql);
+			
+			st.setString(1, dname);
+			
+			int i;
+			
+			i=st.executeUpdate();
+			
+	/*		String sql1 = "select * from doctorinfo where name=?" ;
+			
+			PreparedStatement st1=con.prepareStatement(sql1);
+			
+			st1.setString(1, dname);
+			
+			ResultSet rs1 = st1.executeQuery();     */
+			
+			if(i==0)
+			{
+				return false;
+			}
+			
+			else return true;
+		}
+		catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return false;
+		}
 		
 		
 	}
 	
+	public boolean remove_pat(String pname) {
+		
+		try
+		{
+	
+			sql = "delete from patientinfo where name=? ;";
+
+			PreparedStatement st=con.prepareStatement(sql);
+			
+			st.setString(1, pname);
+			
+			int i;
+			
+			i = st.executeUpdate();
+			
+/*			String sql1 = "select * from patientinfo where name=?" ;
+			
+			PreparedStatement st1=con.prepareStatement(sql1);
+			
+			st1.setString(1, pname);
+			
+			ResultSet rs1 = st1.executeQuery(); */
+			
+			if(i==0)
+			{
+				return false;
+			}
+			
+			else return true;
+		}
+		catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return false;
+		}
+		
+		
+	}
 	
 
 }
