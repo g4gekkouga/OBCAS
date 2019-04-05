@@ -261,6 +261,8 @@
                                                 </div>
                                             </div>
                                             
+                                            
+                                            
                                              <div  class="col-12 col-md-5 mb-0">
                                                 <div class="form-group mb-0">
                                                     
@@ -276,6 +278,10 @@
                                                 	<button type="submit" class="btn medilife-btn" value="update_appointment"> Update </button>
                                                 </div>
                                             </div>
+                                            
+                                            <script type="text/javascript">
+													document.getElementById('message').value = 'empty';
+											</script>
                                             
                                         
                                         </div>

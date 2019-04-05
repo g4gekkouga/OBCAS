@@ -64,7 +64,7 @@ public class logindao {
 		try
 		{
 			
-			sql = "select * from doctorinfo where uname=? and upass=?";
+			sql = "select * from doctorinfo where uname=? and upass=? ;";
 			
 			PreparedStatement st=con.prepareStatement(sql);
 			
@@ -166,5 +166,131 @@ public class logindao {
 
 		
 	}
+	
+	public boolean delete_app(String dname, String appday, String apptime) {
+		
+		try
+		{
+	
+			sql = "Select * from appointment where day=? and apptime=? and dname=? ;";
+
+			PreparedStatement st=con.prepareStatement(sql);
+			
+			st.setString(1,appday);
+			st.setString(2,apptime);
+			st.setString(3,dname);
+			
+			ResultSet rs=st.executeQuery();
+			
+			if(rs.next())
+			{
+				String sql1 = "UPDATE appointment SET `status`=? WHERE `day`=? and apptime=? and dname =? ;";
+				PreparedStatement st1 = con.prepareStatement(sql1);
+				
+				st1.setString(2,appday);
+				st1.setString(3,apptime);
+				st1.setString(4,dname);
+				
+				if (rs.getString("status").equals("Active")) st1.setString(1,"Not Active");
+				else st1.setString(1,"Active");
+				
+				st1.executeUpdate();
+				
+				System.out.println("Fine till here");
+				
+				return true ;
+			}
+			
+			else return false;
+		}
+		catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return false;
+		}
+	}
+	
+	
+	public boolean update_pres(String dname, String appday, String apptime, String app_pres) {
+		
+		try
+		{
+	
+			sql = "Select * from appointment where day=? and apptime=? and dname=? ;";
+
+			PreparedStatement st=con.prepareStatement(sql);
+			
+			st.setString(1,appday);
+			st.setString(2,apptime);
+			st.setString(3,dname);
+			
+			ResultSet rs=st.executeQuery();
+			
+			String pname;
+			
+			if(rs.next()) pname  = rs.getString("pname") ;
+			
+			else return false;
+			
+			String sql1 = "Select * from msgtable where patient=? and doctor=? and appday=? ;" ;
+			
+			PreparedStatement st1=con.prepareStatement(sql1);
+			
+			st1.setString(1,pname);
+			st1.setString(2,dname);
+			st1.setString(3,appday);
+			
+			ResultSet rs1=st1.executeQuery();
+			
+			if(rs1.next()) {
+				String sql2 = "UPDATE msgtable SET pres=? WHERE patient=? and doctor=? and appday=? ;" ;
+				
+				PreparedStatement st2=con.prepareStatement(sql2);
+				st2.setString(1,app_pres);
+				st2.setString(2,pname);
+				st2.setString(3,dname);
+				st2.setString(4,appday);
+				
+				st2.executeUpdate() ;
+				
+				return true ;
+			}
+			else {
+				
+				String sql2 = "Insert into msgtable values(null, ?, ?, ?, null, ?) ;" ;
+				
+				PreparedStatement st2=con.prepareStatement(sql2);
+				
+				st2.setString(1,pname);
+				st2.setString(2,dname);
+				st2.setString(3,appday);
+				st2.setString(4,app_pres);
+				
+				st2.executeUpdate() ;
+				
+				return true ;
+			}
+				
+		}
+		catch(Exception e)
+		{
+			
+			System.out.println(e);
+			return false;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
 
 }
