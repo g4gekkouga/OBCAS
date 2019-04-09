@@ -32,6 +32,17 @@
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  
+  <script src="js/jquery/jquery-2.2.4.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script>
+     function myFunction() {
+    	  var element = document.getElementById("style");
+    	  element.classList.add("zing");
+    	}
+     </script>
 
 </head>
 
@@ -56,6 +67,59 @@
                 </div>
             </div>
         </div>
+        
+        <div class="main-header-area" id="stickyHeader">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 h-100">
+                        <div class="main-menu h-100">
+                            <nav class="navbar h-100 navbar-expand-lg">
+                                <!-- Logo Area  -->
+                                <a class="navbar-brand"><h1>OBCAS<span>+</span></h1></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medilifeMenu" aria-controls="medilifeMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                                <div class="collapse navbar-collapse" id="medilifeMenu">
+                                    <!-- Menu Area -->
+                                    <ul class="navbar-nav ml-auto">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#121">VIEW APPOINTMENTS</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#122">VIEW PATIENT INFO</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#123">VIEW DOCTOR INFO</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#124">REGISTER DOCTOR</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#125">REMOVE DOCTOR</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#126">REMOVE PATIENT</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#127">ALL DOCTORS</a>
+                                        </li>
+                                        <li class="nav-item">
+                       <!--                     <button  type="button" class="btn medilife-btn" onclick="return confirm('Are you sure want to log out')" href="adminLogin.jsp">Logout</button>   --> 
+                                       			<a class="nav-link" href="adminLogin.jsp"  onclick="return confirm('Are you sure want to log out')">Logout</a>
+                                        </li>
+                                    </ul>
+ 
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        
+        
      </header>
 
         
@@ -64,7 +128,7 @@
     <section class="hero-area">
         
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img bg-overlay-white" style="background-image: url(img/bg-img/hero1.jpg);">
+            <div class="single-hero-slide bg-img bg-overlay-white" style="background-image: url(img/bg-img/bcroy3.jpg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
@@ -74,7 +138,9 @@
                                 
                                 <h2 data-animation="fadeInUp" data-delay="100ms">Welcome Admin</h2>
                                 <h2 data-animation="fadeInUp" data-delay="400ms"><font color=<% out.println("red"); %>><%out.println(request.getParameter("admin_name"));%></font></h2>
-
+								
+								<a name="#121"></a>
+								
                             </div>
                         </div>
                     </div>
@@ -90,30 +156,39 @@
                 <div class="col-12">
                     <div class="appointment-form-content">
                         <div class="row no-gutters align-items-center">
+                          
+                            
                             <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
-                                
-                                	<button id="view_appointments_bt" type="button" class="btn medilife-btn">View Appointments</button>
+                                	
+                                	
+                                	<br>
+									<br>
+									<br>
+                                	
+                                	<h2><font color='yellow'><u>VIEW APPOINTMENTS</u></font></h2>
+                     
                                     
                                     <div id="view_appointments_div">
                                       
                                     <form>
                                         <br>
                                         <div class="row align-items-end">
+                                            
+                                            
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="day" name="app_day">
-                                                    <option disabled="disabled" selected="selected">Select Day</option>
-                                                    <option>Monday</option>
-                                                    <option>Tuesday</option>
-                                                    <option>Wednesday</option>
-                                                    <option>Thursday</option>
-                                                    <option>Friday</option>
-                                                    <option>Saturday</option>
-                                                </select>
-                                                  
+                                                    <input type="text" class="form-control" name="app_day" id="app_day" placeholder="Date">
+                                             
                                                 </div>
                                             </div>
+                                            
+                                            <script>
+											    
+												  $( function() {
+												    $( "#app_day" ).datepicker();
+												  } );
+											  </script>
                                             
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
@@ -125,8 +200,9 @@
 													document.getElementById('app_time').value = 'doctor';
 											</script>
                 -->                       
-                                            <div class="col-12 col-md-3">
+                                            <div class="col-12 col-md-6">
                                                 <div class="form-group">
+                                                
                                                 	<button  type="button" class="btn medilife-btn" onclick="view_appinfo(app_day.value, app_doc.value)">View Appointments</button>
                                                 </div>
                                           	</div>
@@ -138,36 +214,8 @@
                                            
                                     </form>
                                     </div>
-                                    
-                                    <script>
-                                    
-                                    var button1 = document.getElementById("view_appointments_bt");
-									var myDiv1 = document.getElementById("view_appointments_div");
 
-									function show1() {
-    									myDiv1.style.visibility = "visible";
-									}
-
-									function hide1() {
-									    myDiv1.style.visibility = "hidden";
-									}
-
-									function toggle1() {
-									    if (myDiv1.style.visibility == "hidden") {
-									        show1();
-									    } else {
-									        hide1();
-									    }
-									}
-									
-									hide1();
-									
-									button1.addEventListener("click", toggle1, false);
-                                    
-                                    </script>
-                                    
-                                    
-                                    
+                        
                                     <script>
                                     
                                     function view_appinfo(appstr, appdoc) {
@@ -211,15 +259,145 @@
                             
                             
                             
-                            <br>
+                            <a name="#122"></a>
+                            
+                            <div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">			
+										
+									<h2><font color='yellow'><u>VIEW PATIENT INFO</u></font></h2>
+                    
+                                    <div id="patient_info_div" >
+                                      
+                                    <form>
+                                        <br>
+                                        <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="name" placeholder="Patient Name">
+                               
+                                                    <button  type="button" class="btn medilife-btn" onclick="view_info(pname.value)">View Info</button>
+                                                </div>
+                                            </div>
+                                            
+                  
+                                           
+                                            
+                                            <div id="pinfo">
+                                            	<p>Patient info displayed here</p>
+                                            </div>
+                                           
+
+                                        
+                                    </form>
+                                    </div>
+                                     
+						
+						</div>
+						</div>
+						
+						<script>
+						
+						function view_info(nstr) {
+							 
+                        	var xhttp = new XMLHttpRequest();
+                        	
+                        	console.log(nstr);
+                        	
+                        	<%		System.out.println("Bye"); %>
+						  
+                        	xhttp.onreadystatechange = function() {
+						    
+                        		if (this.readyState == 4 && this.status == 200) {
+						      
+                        			document.getElementById("pinfo").innerHTML =
+						      
+                        				this.responseText;
+						    
+                        		}
+						  
+                        	};
+						  
+                        	xhttp.open("GET", "send_pinfo.jsp?pname="+nstr, true);
+						  
+                        	xhttp.send();
+						
+                        }
+						
+                        </script>
+                            
+                            <a name="#123"></a>
+                            
+                            <div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">			
+										
+									<h2><font color='yellow'><u>VIEW DOCTOR INFO</u></font></h2>
+                    
+                                    <div id="doctor_info_div" >
+                                      
+                                    <form>
+                                        <br>
+                                        <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="dname" id="dname" placeholder="Patient Name">
+                               
+                                                    <button  type="button" class="btn medilife-btn" onclick="view_dinfo(dname.value)">View Info</button>
+                                                </div>
+                                            </div>
+                                            
+                  
+                                           
+                                            
+                                            <div id="dinfo">
+                                            	<p>Doctor info displayed here</p>
+                                            </div>
+                                           
+
+                                        
+                                    </form>
+                                    </div>
+                                     
+						
+						</div>
+						</div>
+						
+						<script>
+						
+						function view_dinfo(nstr) {
+							 
+                        	var xhttp = new XMLHttpRequest();
+                        	
+                        	console.log(nstr);
+                        	
+                        	<%		System.out.println("Bye"); %>
+						  
+                        	xhttp.onreadystatechange = function() {
+						    
+                        		if (this.readyState == 4 && this.status == 200) {
+						      
+                        			document.getElementById("dinfo").innerHTML =
+						      
+                        				this.responseText;
+						    
+                        		}
+						  
+                        	};
+						  
+                        	xhttp.open("GET", "send_dinfo.jsp?dname="+nstr, true);
+						  
+                        	xhttp.send();
+						
+                        }
+						
+                        </script>
                             
                             
+                            
+                            <a name="#124"></a>
                             
                             
                              <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
                                 
-                                	<button id="register_doc_bt" type="button" class="btn medilife-btn">Register New Doctor</button>
+                                	<h2><font color='yellow'><u>REGISTER NEW DOCTOR</u></font></h2>
                                     
                                     <div id="register_doc_div">
                                       
@@ -273,57 +451,23 @@
                                     </form>
                                     </div>
                                     
-                                    <script>
-                                    
-                                    var button2 = document.getElementById("register_doc_bt");
-									var myDiv2 = document.getElementById("register_doc_div");
-
-									function show2() {
-    									myDiv2.style.visibility = "visible";
-									}
-
-									function hide2() {
-									    myDiv2.style.visibility = "hidden";
-									}
-
-									function toggle2() {
-									    if (myDiv2.style.visibility == "hidden") {
-									        show2();
-									    } else {
-									        hide2();
-									    }
-									}
-									
-									hide2();
-									
-									button2.addEventListener("click", toggle2, false);
-                                    
-                                    </script>
-                                    
-
-                                </div>
+                            </div>
                             </div>
                             
-                            
-                            
-                            
-                            
-                            <br>
-                            
-                            
+							<a name="#125"></a>
                             
                             
                              <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
                                 
-                                	<button id="delete_doc_bt" type="button" class="btn medilife-btn" >Remove Doctor</button>
+                                	<h2><font color='yellow'><u>REMOVE DOCTOR</u></font></h2>
   
    
                     
                                     <div id="delete_doc_div">
                                       
                                     <form action="Delete_Doc" method="post">
-                                        <br>
+                                        
                                         <div class="col-12 col-md-4">
                                                 <div class="form-group">
                                                     
@@ -344,45 +488,17 @@
                                     </form>
                                     </div>
                                     
-                                    <script>
-                                    
-                                    var button3 = document.getElementById("delete_doc_bt");
-									var myDiv3 = document.getElementById("delete_doc_div");
-									
 
-									function show3() {
-    									myDiv3.style.visibility = "visible";
-    							<%		System.out.println("Hello"); %>
-									}
-
-									function hide3() {
-									    myDiv3.style.visibility = "hidden";
-									}
-
-									function toggle3() {
-									    if (myDiv3.style.visibility == "hidden") {
-									        show3();
-									    } else {
-									        hide3();
-									    }
-									}
-									
-									hide3();
-									
-									button3.addEventListener("click", toggle3, false);
-                                    
-                                    </script>
-                       
 
                                 </div>
                             </div>
                             
-                            <br>
+                            <a name="#126"></a>
                             
                             <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
                                 
-                                	<button id="delete_pat_bt" type="button" class="btn medilife-btn" >Remove Patient</button>
+                   <h2><font color='yellow'><u>REMOVE PATIENT</u></font></h2>
   
    
                     
@@ -410,49 +526,59 @@
                                     </form>
                                     </div>
                                     
-                                    <script>
-                                    
-                                    var button4 = document.getElementById("delete_pat_bt");
-									var myDiv4 = document.getElementById("delete_pat_div");
-									
-
-									function show4() {
-    									myDiv4.style.visibility = "visible";
-    							<%		System.out.println("Hello"); %>
-									}
-
-									function hide4() {
-									    myDiv4.style.visibility = "hidden";
-									}
-
-									function toggle4() {
-									    if (myDiv4.style.visibility == "hidden") {
-									        show4();
-									    } else {
-									        hide4();
-									    }
-									}
-									
-									hide4();
-									
-									button4.addEventListener("click", toggle4, false);
-                                    
-                                    </script>
-                       
 
                                 </div>
                             </div>
                             
+                            <a name="#127"></a>
+                            
+                            
+                            <div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">
+                                
+                                	<h2><font color='yellow'><u>ALL DOCTORS LIST</u></font></h2>
+                                	
+                                	<div id="all_doc">
+                                	
+                                	</div>
+                                	
+                             
+                             </div>
+                            </div>
+                            
+                            <script>
+                            
+                            function view_all_doc() {
+								 
+                            	var xhttp = new XMLHttpRequest();
+                            	
+                            	xhttp.onreadystatechange = function() {
+							    
+                            		if (this.readyState == 4 && this.status == 200) {
+							      
+                            			document.getElementById("all_doc").innerHTML =
+							      
+                            				this.responseText;
+							    
+                            		}
+							  
+                            	};
+							  
+                            	xhttp.open("GET", "send_all_doc.jsp", true);
+							  
+                            	xhttp.send();
+							
+                            }
+                            
+                            view_all_doc();
+                            
+                            </script>
                             
                             
                             
                             
                             
-                            
-                            
-                            
-                            
-                            
+      
                             
                             
                             <div class="col-12 col-lg-3">
@@ -508,7 +634,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery/jquery-1.12.1.min.js"></script>
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap js -->

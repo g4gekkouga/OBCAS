@@ -29,9 +29,45 @@
 
     <!-- Favicon  -->
     <link rel="icon" href="images/core-img/favicon.ico">
+   
 
     <!-- Style CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+    
+    <style>
+	
+	div.relative {
+	  position: relative;
+	  top: 100px;
+	}
+	
+	div.relative1 {
+	  position: relative;
+	  bottom: 35px;
+	}
+	
+	div.relative2 {
+	  position: relative;
+	  bottom: 350px;
+	}
+	
+	</style>
+ 	
+ 	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script>
+     function myFunction() {
+    	  var element = document.getElementById("style");
+    	  element.classList.add("zing");
+    	}
+     </script>
+ 	
+ 	
+                                    
+                                    
+    
 
 </head>
 
@@ -56,21 +92,64 @@
                 </div>
             </div>
         </div>
+        
+       <div class="main-header-area" id="stickyHeader">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 h-100">
+                        <div class="main-menu h-100">
+                            <nav class="navbar h-100 navbar-expand-lg">
+                                <!-- Logo Area  -->
+                                <a class="navbar-brand"><h1>OBCAS<span>+</span></h1></a>
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#medilifeMenu" aria-controls="medilifeMenu" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+                                <div class="collapse navbar-collapse" id="medilifeMenu">
+                                    <!-- Menu Area -->
+                                    <ul class="navbar-nav ml-auto">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#121">VIEW APPOINTMENTS</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#122">UPDATE APPOINTMENTS</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#123">VIEW PATIENT INFO</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#124">VIEW PATIENT REVIEW</a>
+                                        </li>
+                                        <li class="nav-item">
+                               <!--             <button  type="button" class="btn medilife-btn" onclick="return confirm('Are you sure want to log out')" href="doctorLogin.jsp">Logout</button>   --> 
+                               					<a class="nav-link" href="doctorLogin.jsp" onclick="return confirm('Are you sure want to log out')">Logout</a>
+                                        </li>
+                                    </ul>
+ 
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+       
      </header>
 
-        
+      
 
     <!-- ***** Hero Area Start ***** -->
     <section class="hero-area">
         
             <!-- Single Hero Slide -->
-            <div class="single-hero-slide bg-img bg-overlay-white" style="background-image: url(img/bg-img/hero1.jpg);">
+            <div class="single-hero-slide bg-img bg-overlay-white" style="background-image: url(img/bg-img/bcroy2.jpeg);">
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
                         <div class="col-12">
                             <div class="hero-slides-content">
                                 
-
+								<a name="#121"></a> 
                                 
                                 <h2 data-animation="fadeInUp" data-delay="100ms">Welcome Doctor</h2>
                                 <h2 data-animation="fadeInUp" data-delay="400ms"><font color=<% out.println("red"); %>><%out.println(request.getParameter("doctor_name"));%></font></h2>
@@ -79,28 +158,39 @@
                         </div>
                     </div>
                 </div>
-            </div>   
+            </div>  
+          
     </section>
     <!-- ***** Hero Area End ***** -->
 
     <!-- ***** Book An Appoinment Area Start ***** -->
+    
+    
     <div class="medilife-book-an-appoinment-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="appointment-form-content">
                         <div class="row no-gutters align-items-center">
+							
+							                            
                             <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
-                                
-                                	<button id="view_appointments_bt" type="button" class="btn medilife-btn">View Appointments</button>
+                                	
+                                	<br>
+									<br>
+									<br>
+                                	
+                                	<h2><font color='yellow'><u>VIEW APPOINTMENTS</u></font></h2>
                                     
-                                    <div id="view_appointments_div">
+                                   
+                                    
+                                    <div id="view_appointments_div." >
                                       
                                     <form>
                                         <br>
                                         <div class="row align-items-end">
-                                            <div class="col-12 col-md-4">
+                   <!--                         <div class="col-12 col-md-4">
                                                 <div class="form-group">
                                                     <select class="form-control" id="day" name="app_day">
                                                     <option disabled="disabled" selected="selected">Select Day</option>
@@ -110,26 +200,42 @@
                                                     <option>Thursday</option>
                                                     <option>Friday</option>
                                                     <option>Saturday</option>
+                         
                                                 </select>
                                                   
                                                 </div>
                                             </div>
-                                            
+                -->                            
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_doc" id="app_time" placeholder="Doctor Name">
+                                                    <select class="form-control" id="app_doc" name="app_doc">
+                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>
+                                                </select>
+                        
                                                 </div>
                                             </div>
                                             
-                <!--                        <script type="text/javascript">
-													document.getElementById('app_time').value = 'doctor';
-											</script>
-                -->                       
-                                            <div class="col-12 col-md-3">
+ 											<div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                	<button  type="button" class="btn medilife-btn" onclick="view_appinfo(app_day.value, app_doc.value)">View Appointments</button>
+                                                    <input type="text" class="form-control" name="app_date" id="app_date" placeholder="Date">
+                                             
                                                 </div>
-                                          	</div>
+                                            </div>
+                                            
+                                            <script>
+											    
+												  $( function() {
+												    $( "#app_date" ).datepicker();
+												  } );
+											  </script>
+                        
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group">
+                                                
+                                                	<button  type="button" name="zing" id="zing" class="btn medilife-btn"  onclick="view_appinfo(app_date.value,app_doc.value)">View Appointments</button>
+                                                </div>
+                                          	</div>  
                                         </div>
                                     
                                     <div id="appinfo">
@@ -138,40 +244,228 @@
                                            
                                     </form>
                                     </div>
+ 					</div>
+ 					</div>
+ 					 			
+  						<a name="#122"></a>
+  						
+  						<div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">
+                            
+   									<h2><font color='yellow'><u>UPDATE APPOINTMENTS</u></font></h2>
                                     
-                                    <script>
+                                    <div id="update_appointments_div">
+                                      
+                                    <form action="update_appointment" method="post">
+                                        <br>
+                                        <div class="row align-items-end">
+             <!--                                 <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="day_u" name="app_day_u_past">
+                                                    <option disabled="disabled" selected="selected">Select Day</option>
+                                                    <option>Monday</option>
+                                                    <option>Tuesday</option>
+                                                    <option>Wednesday</option>
+                                                    <option>Thursday</option>
+                                                    <option>Friday</option>
+                                                    <option>Saturday</option>
+                                                </select>
+                                               
+                                                </div>
+                                            </div>
+              -->                              
+                                            <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="app_day_u" id="app_day_u" placeholder="Date">
+                                                </div>
+                                            </div>
+                                            
+                                            <script>
+											    
+												  $( function() {
+												    $( "#app_day_u" ).datepicker();
+												  } );
+											  </script>
+                                           
+                                            
+                                            <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="app_time_u" id="app_time_u" placeholder="HH:MM:SS">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                <select class="form-control" id="app_doc_u" name="app_doc_u">
+                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>option>
+                                                </select>
+
+                                                </div>
+                                            </div>
+           
+                                            <div class="col-12 col-md-5 mb-0">
+                                                <div class="form-group mb-0">
+                                                    <button id="pres_btn" type="button" class="btn medilife-btn" > Enter Prescription </button>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                            
+                                             <div  class="col-12 col-md-5 mb-0">
+                                                <div class="form-group mb-0">
+                                                	
+                                                	
+                                                    
+                                                    <button type="submit" class="btn medilife-btn" value="update_appointment" onclick="return confirm('Are you sure you want to delete appointment on '+app_day_u.value+' at '+app_time_u.value)"> Delete Appointment </button>
+													                                                
+                                                </div>
+                                            </div>
+                                            
+                                         
+                                             <div id="pres_msg" class="col-12 col-md-7">
+                                                <div class="form-group mb-0">
+                                                    <br>
+                                                    <br>
+                                                    <br>
+                                                    <textarea name="message" class="form-control mb-0 border-top-0 border-right-0 border-left-0" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                                	<br>
+                                                	<button type="submit" class="btn medilife-btn" value="update_appointment" onclick="return confirm('Are you sure you want to update prescription for appointment on '+app_day_u.value+' at '+app_time_u.value)"> Update </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <script type="text/javascript">
+													document.getElementById('message').value = 'empty';
+											</script>
+                                            
+                                        
+                                        </div>
+                                    </form>
+                                    </div>
+								
+							</div>
+							</div>			
+										
+							<a name="#123"></a>
+										
+							<div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">			
+										
+									<h2><font color='yellow'><u>VIEW PATIENT INFO</u></font></h2>
+                    
+                                    <div id="patient_info_div" >
+                                      
+                                    <form>
+                                        <br>
+                                        <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="name" placeholder="Patient Name">
+                               
+                                                    <button  type="button" class="btn medilife-btn" onclick="view_info(pname.value)">View Info</button>
+                                                </div>
+                                            </div>
+                                            
+                  
+                                           
+                                            
+                                            <div id="pinfo">
+                                            	<p>Patient info displayed here</p>
+                                            </div>
+                                           
+
+                                        
+                                    </form>
+                                    </div>
+                                     
+						
+						</div>
+						</div>
+						
+							<a name="#124"></a>
+							
+							<div class="col-12 col-lg-9">
+                                <div class="medilife-appointment-form">			
+										
+									<h2><font color='yellow'><u>VIEW PATIENT REVIEWS</u></font></h2>
+                    
+                                    <div id="patient_review_div" >
+                                      
+                                    <form>
+                                        <br>
+                                        <div class="col-12 col-md-3">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname_r" id="name" placeholder="Patient Name">
+                               					</div>
+                               			</div>
+                               			
+                               			
+                               			<div class="col-12 col-md-3">
+                                                <div class="form-group">
+                                                    <select class="form-control" id="app_doc_r" name="app_doc_r">
+                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>
+                                                </select>
+                        
+                                                </div>
+                                            </div>
+                               				
+                               				<div class="col-12 col-md-4">
+                                                <div class="form-group">	
+                               						
+                                                    <button  type="button" class="btn medilife-btn" onclick="view_review(pname_r.value,app_doc_r.value)">View Reviews</button>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                            
+                                            
+                                            <div id="rewiew">
+                                            	<p>Patient reviews displayed here</p>
+                                            </div>
+                                           
+
+                                        
+                                    </form>
+                                    </div>
+                                     
+						
+						</div>
+						</div>
+                            
+                            
+                            
+                            <script>
                                     
-                                    var button1 = document.getElementById("view_appointments_bt");
-									var myDiv1 = document.getElementById("view_appointments_div");
+                            var button2a = document.getElementById("pres_btn");
+							var myDiv2a = document.getElementById("pres_msg")
 
-									function show1() {
-    									myDiv1.style.visibility = "visible";
-									}
+							function show2a() {
+								myDiv2a.style.visibility = "visible";
+								
+							}
 
-									function hide1() {
-									    myDiv1.style.visibility = "hidden";
-									}
+							function hide2a() {
+							    myDiv2a.style.visibility = "hidden";
+							    
+							}
 
-									function toggle1() {
-									    if (myDiv1.style.visibility == "hidden") {
-									        show1();
-									    } else {
-									        hide1();
-									    }
-									}
+							function toggle2a() {
+							    if (myDiv2a.style.visibility == "hidden") {
+							        show2a();
+							    } else {
+							        hide2a();
+							    }
+							}
+							
+							hide2a();
+							
+							button2a.addEventListener("click", toggle2a, false);
+                                    
 									
-									hide1();
-									
-									button1.addEventListener("click", toggle1, false);
-                                    
-                                    </script>
-                                    
-                                    
-                                    
-                                    <script>
-                                    
-                                    function view_appinfo(appstr, appdoc) {
-
+									function view_appinfo(appstr,appdoc) {
+										
+                      
                                     	
                                     	var xhttp1 = new XMLHttpRequest();
                                     	
@@ -192,10 +486,13 @@
 									  
                                     	};
 									  
-    
+    									
+                                    	let cnfm = confirm("You are about to view your appointments for "+appstr);
+                                    	
+                                    	if (!cnfm) return ;
                                     	
                                     	xhttp1.open("GET", "send_app_info.jsp?appday="+appstr+"&appdoc="+appdoc, true);
-									  
+									  	
                                     	
                                     	
                                     	xhttp1.send();
@@ -204,221 +501,7 @@
 									
                                     }
                                     
-                                    </script>
-
-                                </div>
-                            </div>
-                            
-                            
-                            
-                            <br>
-                            
-                            
-                            
-                            
-                             <div class="col-12 col-lg-9">
-                                <div class="medilife-appointment-form">
-                                
-                                	<button id="update_appointments_bt" type="button" class="btn medilife-btn">Update Appointments</button>
-                                    
-                                    <div id="update_appointments_div">
-                                      
-                                    <form action="update_appointment" method="post">
-                                        <br>
-                                        <div class="row align-items-end">
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                   <select class="form-control" id="day_u" name="app_day_u">
-                                                    <option disabled="disabled" selected="selected">Select Day</option>
-                                                    <option>Monday</option>
-                                                    <option>Tuesday</option>
-                                                    <option>Wednesday</option>
-                                                    <option>Thursday</option>
-                                                    <option>Friday</option>
-                                                    <option>Saturday</option>
-                                                </select>
-                                                
-                                                </div>
-                                            </div>
-                                           
-                                            
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_time_u" id="app_time" placeholder="HH:MM:SS">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_doc_u" id="app_time" placeholder="Doctor Name">
-                                                </div>
-                                            </div>
-           
-                                            <div class="col-12 col-md-5 mb-0">
-                                                <div class="form-group mb-0">
-                                                    <button id="pres_btn" type="button" class="btn medilife-btn" > Enter Prescription </button>
-                                                    
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            
-                                             <div  class="col-12 col-md-5 mb-0">
-                                                <div class="form-group mb-0">
-                                                    
-                                                    <button type="submit" class="btn medilife-btn" value="update_appointment"> Delete Appointment </button>
-													                                                
-                                                </div>
-                                            </div>
-                                            
-                                             <div id="pres_msg" class="col-12 col-md-7">
-                                                <div class="form-group mb-0">
-                                                    <br>
-                                                    <textarea name="message" class="form-control mb-0 border-top-0 border-right-0 border-left-0" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                                	<button type="submit" class="btn medilife-btn" value="update_appointment"> Update </button>
-                                                </div>
-                                            </div>
-                                            
-                                            <script type="text/javascript">
-													document.getElementById('message').value = 'empty';
-											</script>
-                                            
-                                        
-                                        </div>
-                                    </form>
-                                    </div>
-                                    
-                                    <script>
-                                    
-                                    var button2 = document.getElementById("update_appointments_bt");
-									var myDiv2 = document.getElementById("update_appointments_div");
-
-									function show2() {
-    									myDiv2.style.visibility = "visible";
-									}
-
-									function hide2() {
-									    myDiv2.style.visibility = "hidden";
-									}
-
-									function toggle2() {
-									    if (myDiv2.style.visibility == "hidden") {
-									        show2();
-									    } else {
-									        hide2();
-									    }
-									}
-									
-									hide2();
-									
-									button2.addEventListener("click", toggle2, false);
-                                    
-                                    </script>
-                                    
-                                    <script>
-                                    
-                                    var button2a = document.getElementById("pres_btn");
-									var myDiv2a = document.getElementById("pres_msg")
-
-									function show2a() {
-    									myDiv2a.style.visibility = "visible";
-    									
-									}
-
-									function hide2a() {
-									    myDiv2a.style.visibility = "hidden";
-									    
-									}
-
-									function toggle2a() {
-									    if (myDiv2a.style.visibility == "hidden") {
-									        show2a();
-									    } else {
-									        hide2a();
-									    }
-									}
-									
-									hide2a();
-									
-									button2a.addEventListener("click", toggle2a, false);
-                                    
-                                    </script>
-                                    
-                                    
-
-                                </div>
-                            </div>
-                            
-                            
-                            
-                            
-                            
-                            <br>
-                            
-                            
-                            
-                            
-                             <div class="col-12 col-lg-9">
-                                <div class="medilife-appointment-form">
-                                
-                                	<button id="patient_info_bt" type="button" class="btn medilife-btn" >View Patient Info</button>
-  
-   
-                    
-                                    <div id="patient_info_div">
-                                      
-                                    <form>
-                                        <br>
-                                        <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="name" placeholder="Patient Name">
-                               
-                                                    <button  type="button" class="btn medilife-btn" onclick="view_info(pname.value)">View Info</button>
-                                                </div>
-                                            </div>
-                                            
-                  
-                                           
-                                            
-                                            <div id="pinfo">
-                                            	<p>Patient details displayed here</p>
-                                            </div>
-                                           
-
-                                        
-                                    </form>
-                                    </div>
-                                    
-                                    <script>
-                                    
-                                    var button3 = document.getElementById("patient_info_bt");
-									var myDiv3 = document.getElementById("patient_info_div");
-									
-
-									function show3() {
-    									myDiv3.style.visibility = "visible";
-    							<%		System.out.println("Hello"); %>
-									}
-
-									function hide3() {
-									    myDiv3.style.visibility = "hidden";
-									}
-
-									function toggle3() {
-									    if (myDiv3.style.visibility == "hidden") {
-									        show3();
-									    } else {
-									        hide3();
-									    }
-									}
-									
-									hide3();
-									
-									button3.addEventListener("click", toggle3, false);
-                                    
-                                    </script>
-                                    
-                                    <script>
+                              
 									
                                     function view_info(nstr) {
 									 
@@ -447,13 +530,10 @@
                                     }
 									
                                     </script>
-                                    
-                          
-                                    
-                                    
-
-                                </div>
-                            </div>
+                            
+                            
+                            
+                            
                             
                             
                             
@@ -522,7 +602,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="js/jquery/jquery-1.12.1.min.js"></script>
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap js -->

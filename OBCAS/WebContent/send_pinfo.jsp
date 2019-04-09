@@ -32,12 +32,12 @@ try
 	
 	 while(rs.next())
 	   {
-		   out1 = out1 +"<p>Patient ID : "+rs.getString("id")+"<br>";
+		   out1 = out1 +"<p><font color='yellow'>Patient ID : "+rs.getString("id")+"<br>";
 		   out1 = out1 +"Name : "+rs.getString("name")+"<br>";
 		   out1 = out1 +"Sex : "+rs.getString("gender")+"<br>";
 		   out1 = out1 +"DOB : "+rs.getString("birthday")+"<br>";
 		   out1 = out1 +"Email : "+rs.getString("uemail")+"<br>";
-		   out1 = out1 +"Phone No : "+rs.getString("phone")+"<br></p>";
+		   out1 = out1 +"Phone No : "+rs.getString("phone")+"<br></font></p>";
 	   }
 	 
 	 response.getWriter().println(out1); 
