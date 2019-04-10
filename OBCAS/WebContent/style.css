@@ -688,9 +688,9 @@ img {
   margin-bottom: 30px;
   font-weight: 500;
   padding: 0 15px;
-  border: 2px solid #536174; }
+  border: 2px solid white; }
   .form-control:hover, .form-control:focus {
-    background-color: transparent;
+    background-color: white;
     box-shadow: none; }
 
 textarea {
@@ -708,7 +708,7 @@ textarea {
 .medilife-book-an-appoinment-area {
   position: relative;
   z-index: 1;
-  margin-top: -250px; }
+  margin-top: 0px; }
   .medilife-book-an-appoinment-area .appointment-form-content {
     background-color: #07215e; }
   .medilife-book-an-appoinment-area .medilife-appointment-form {

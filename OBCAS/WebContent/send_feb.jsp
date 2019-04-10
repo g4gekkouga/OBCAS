@@ -10,24 +10,36 @@ String url="jdbc:mysql://localhost:3306/obcas";
 String name="root";
 String password="root";
 
-String out1 = null ;
+String out1 = "";
 
 try
 {
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection con=DriverManager.getConnection(url,name,password);
 	
-	sql = "Select * from doctorinfo ";
+	System.out.println("Done_app");
 	
-	PreparedStatement st=con.prepareStatement(sql);
+	String pname=request.getParameter("pname"); 
+	String dname=request.getParameter("dname");
+	String adate=request.getParameter("adate");
+	
+	
+	sql = "Select * from feedback where pname=? and dname=? and adate=? ";
+	
+	PreparedStatement st=con.prepareStatement(sql);  
+	
+	st.setString(1,pname);
+	st.setString(2,dname);
+	st.setString(3,adate);
 	
 	ResultSet rs = st.executeQuery(); 
 	
+	
 	 while(rs.next())
 	   {
-		   out1 = out1 +"<p><font color='white'>Doctor ID : "+rs.getString("id")+"<br>";
-		   out1 = out1 +"Name : "+rs.getString("name")+"<br></font></p>";
-		   out1 = out1 +"<br>" ;
+		 out1 = out1+"<br>";	
+		 out1 = out1 +"<p><font color='white'>Feedback : <br> "+rs.getString("feedback")+"<br></font></p>";
+		 out1 = out1+"<br>";	
 	   }
 	 
 	 response.getWriter().println(out1); 

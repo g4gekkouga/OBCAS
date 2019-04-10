@@ -10,7 +10,7 @@ String url="jdbc:mysql://localhost:3306/obcas";
 String name="root";
 String password="root";
 
-String out1 = null ;
+String out1 = "";
 
 try
 {
@@ -33,7 +33,7 @@ try
 	
 	if (dname==null) System.out.println("Yohoo its null");
 	
-	sql = "Select * from appointment where dname=? and day=? ";
+	sql = "Select * from appointments where dname=? and adate=? ";
 	
 	PreparedStatement st=con.prepareStatement(sql);  
 	
@@ -42,13 +42,13 @@ try
 	
 	ResultSet rs = st.executeQuery();
 	
-	out1 = out1 + "<p>";
+	out1 = out1 + "<p><font color='white'>";
 	while(rs.next())
 	   {
-		   out1 = out1 + "Patient Name : "+rs.getString("pname")+"<br>Time : "+rs.getString("apptime")+"<br>";
+		   out1 = out1 + "Patient Name : "+rs.getString("pname")+"<br>Start Time : "+rs.getString("starttime")+"<br>End Time : "+rs.getString("endtime")+"<br>";
 		   out1 = out1 + "<br>";
 	   }
-	out1 = out1 + "</p>";
+	out1 = out1 + "</font></p>";
 	
 	response.getWriter().println(out1); 
 	

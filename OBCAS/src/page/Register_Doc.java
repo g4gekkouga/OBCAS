@@ -43,11 +43,14 @@ public class Register_Doc extends HttpServlet {
 		String dpass = request.getParameter("doc_pass");
 		String dspec = request.getParameter("doc_spec");
 		String demail = request.getParameter("doc_email");
+		String ds = request.getParameter("doc_s");
+		String dmobile = request.getParameter("doc_mobile");
+		String dsex = request.getParameter("doc_sex");
 		
 		logindao dao =new logindao();
 		dao.connectDB();
 		
-		if(dao.register_doctor(dname, duname, dpass, dspec, demail))
+		if(dao.register_doctor(dname, duname, dpass, dspec, demail, ds, dmobile, dsex))
 		{
 			HttpSession session=request.getSession();
 			session.setAttribute("username",dname);

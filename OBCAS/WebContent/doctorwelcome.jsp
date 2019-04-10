@@ -57,6 +57,8 @@
  	
  	<script src="js/jquery/jquery-2.2.4.min.js"></script>
      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/jquery/jquery.autocomplete.js"></script>
+     
      <script>
      function myFunction() {
     	  var element = document.getElementById("style");
@@ -118,7 +120,7 @@
                                             <a class="nav-link" href="#123">VIEW PATIENT INFO</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#124">VIEW PATIENT REVIEW</a>
+                                            <a class="nav-link" href="#124">PATIENT MESSAGE</a>
                                         </li>
                                         <li class="nav-item">
                                <!--             <button  type="button" class="btn medilife-btn" onclick="return confirm('Are you sure want to log out')" href="doctorLogin.jsp">Logout</button>   --> 
@@ -149,23 +151,34 @@
                         <div class="col-12">
                             <div class="hero-slides-content">
                                 
-								<a name="#121"></a> 
+							
                                 
                                 <h2 data-animation="fadeInUp" data-delay="100ms">Welcome Doctor</h2>
                                 <h2 data-animation="fadeInUp" data-delay="400ms"><font color=<% out.println("red"); %>><%out.println(request.getParameter("doctor_name"));%></font></h2>
-
+<a name="#121"></a> 
                             </div>
                         </div>
                     </div>
+   
+                    
                 </div>
             </div>  
           
     </section>
+    
     <!-- ***** Hero Area End ***** -->
 
     <!-- ***** Book An Appoinment Area Start ***** -->
-    
-    
+    			
+   			
+    <br>		
+    <br>
+    <br>	
+    				<h2><font color='black' class='center' ><center><u>VIEW APPOINTMENTS</u></center></font></h2>
+    <br>
+    <br>			
+    <br>
+   
     <div class="medilife-book-an-appoinment-area">
         <div class="container">
             <div class="row">
@@ -177,11 +190,9 @@
                             <div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
                                 	
-                                	<br>
-									<br>
-									<br>
                                 	
-                                	<h2><font color='yellow'><u>VIEW APPOINTMENTS</u></font></h2>
+                                	
+                                	<h3><font color='yellow'><u>Appointments</u></font></h3>
                                     
                                    
                                     
@@ -244,15 +255,38 @@
                                            
                                     </form>
                                     </div>
+                                    
+                                    <a name="#122"></a>
  					</div>
  					</div>
  					 			
-  						<a name="#122"></a>
+  					</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>	
+  						
+  						 <br>
+  						<br>
+  						<br>
+  								<h2><font color='black'><center><u>UPDATE APPOINTMENTS</u></center></font></h2>
+  						<br>
+  						<br>
+  						 <br>
+  						
+  <div class="medilife-book-an-appoinment-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="appointment-form-content">
+                        <div class="row no-gutters align-items-center">
+  						
   						
   						<div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">
                             
-   									<h2><font color='yellow'><u>UPDATE APPOINTMENTS</u></font></h2>
+   									<h3><font color='yellow'><u>Update</u></font></h3>
                                     
                                     <div id="update_appointments_div">
                                       
@@ -344,29 +378,55 @@
                                     </form>
                                     </div>
 								
+									<a name="#123"></a>
+									
 							</div>
 							</div>			
 										
-							<a name="#123"></a>
+
+							
+							</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>	
+  						
+  						 <br>
+  						<br>
+  						<br>
+  								<h2><font color='black'><center><u>VIEW PATIENT INFO</u></center></font></h2>
+  						<br>
+  						<br>
+  						 <br>
+  						
+  <div class="medilife-book-an-appoinment-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="appointment-form-content">
+                        <div class="row no-gutters align-items-center">
+							
+							
 										
 							<div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">			
 										
-									<h2><font color='yellow'><u>VIEW PATIENT INFO</u></font></h2>
+									<h3><font color='yellow'><u>Patient</u></font></h3>
                     
                                     <div id="patient_info_div" >
                                       
-                                    <form>
+                                   <form>
                                         <br>
                                         <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="name" placeholder="Patient Name">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="pname" placeholder="Patient Name">
                                
                                                     <button  type="button" class="btn medilife-btn" onclick="view_info(pname.value)">View Info</button>
                                                 </div>
                                             </div>
                                             
-                  
+
                                            
                                             
                                             <div id="pinfo">
@@ -378,50 +438,91 @@
                                     </form>
                                     </div>
                                      
+                                     <a name="#124"></a>
 						
 						</div>
 						</div>
-						
-							<a name="#124"></a>
+							
+							</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>
+  					</div>	
+  						
+  						 <br>
+  						<br>
+  						<br>
+  								<h2><font color='black'><center><u>PATIENT MESSAGE</u></center></font></h2>
+  						<br>
+  						<br>
+  						 <br>
+  						
+  <div class="medilife-book-an-appoinment-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="appointment-form-content">
+                        <div class="row no-gutters align-items-center">
 							
 							<div class="col-12 col-lg-9">
                                 <div class="medilife-appointment-form">			
 										
-									<h2><font color='yellow'><u>VIEW PATIENT REVIEWS</u></font></h2>
+									<h3><font color='yellow'><u>Message</u></font></h3>
                     
                                     <div id="patient_review_div" >
                                       
                                     <form>
                                         <br>
-                                        <div class="col-12 col-md-3">
+                          
+                               			
+                               			
+                               			<div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname_r" id="name" placeholder="Patient Name">
+                                                    <input type="text" class="form-control" name="app_day_msg" id="app_day_msg" placeholder="Date">
+                                                </div>
+                                            </div>
+                                            
+                                            <script>
+											    
+												  $( function() {
+												    $( "#app_day_msg" ).datepicker();
+												  } );
+											  </script>
+                                           
+                                            
+                                            <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname_msg" id="pname_msg" placeholder="Patient Name">
                                					</div>
                                			</div>
-                               			
-                               			
-                               			<div class="col-12 col-md-3">
+                                            
+                                            <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <select class="form-control" id="app_doc_r" name="app_doc_r">
+                                                <select class="form-control" id="dname_msg" name="dname_msg">
                                                     <option disabled="disabled" selected="selected">Select Doctor</option>
-                                                    <option><%= request.getParameter("doctor_name") %></option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>option>
                                                 </select>
+
+                                                </div>
+                                            </div>
+           
                         
+                                            
+                                           
+                                            
+                                             <div  class="col-12 col-md-5 mb-0">
+                                                <div class="form-group mb-0">
+                                                	
+                                                	
+                                                    
+                                                    <button type="button" class="btn medilife-btn"  onclick="view_msg(app_day_msg.value, pname_msg.value, dname_msg.value)"> View Message </button>
+													                                                
                                                 </div>
                                             </div>
-                               				
-                               				<div class="col-12 col-md-4">
-                                                <div class="form-group">	
-                               						
-                                                    <button  type="button" class="btn medilife-btn" onclick="view_review(pname_r.value,app_doc_r.value)">View Reviews</button>
-                                                </div>
-                                            </div>
                                             
-                                            
-                                            
-                                            
-                                            <div id="rewiew">
-                                            	<p>Patient reviews displayed here</p>
+                                            <div id="display_msg">
+                                            	<p>Patient message displayed here</p>
                                             </div>
                                            
 
@@ -497,8 +598,7 @@
                                     	
                                     	xhttp1.send();
                                     	
-                                    	console.log(appdoc);
-									
+                                    	
                                     }
                                     
                               
@@ -528,11 +628,32 @@
                                     	xhttp.send();
 									
                                     }
+                                    
+                                    function view_msg(str1, str2, str3) {
+   									 
+                                    	var xhttp = new XMLHttpRequest();                  	
+   
+									  
+                                    	xhttp.onreadystatechange = function() {
+									    
+                                    		if (this.readyState == 4 && this.status == 200) {
+									      
+                                    			document.getElementById("display_msg").innerHTML =
+									      
+                                    				this.responseText;
+									    
+                                    		}
+									  
+                                    	};
+									  
+                                    	xhttp.open("GET", "send_msg.jsp?adate="+str1+"&pname="+str2+"&dname="+str3, true);
+									  
+                                    	xhttp.send();
+									
+                                    }
 									
                                     </script>
-                            
-                            
-                            
+                                         
                             
                             
                             

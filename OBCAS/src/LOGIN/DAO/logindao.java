@@ -172,7 +172,7 @@ public class logindao {
 		try
 		{
 	
-			sql = "Select * from appointment where day=? and apptime=? and dname=? ;";
+			sql = "Select * from appointments where adate=? and starttime=? and dname=? ;";
 
 			PreparedStatement st=con.prepareStatement(sql);
 			
@@ -184,7 +184,7 @@ public class logindao {
 			
 			if(rs.next())
 			{
-				String sql1 = "UPDATE appointment SET `status`=? WHERE `day`=? and apptime=? and dname =? ;";
+				String sql1 = "UPDATE appointments SET `status`=? WHERE adate=? and starttime=? and dname =? ;";
 				PreparedStatement st1 = con.prepareStatement(sql1);
 				
 				st1.setString(2,appday);
@@ -217,7 +217,7 @@ public class logindao {
 		try
 		{
 	
-			sql = "Select * from appointment where day=? and apptime=? and dname=? ;";
+			sql = "Select * from appointments where adate=? and starttime=? and dname=? ;";
 
 			PreparedStatement st=con.prepareStatement(sql);
 			
@@ -282,12 +282,12 @@ public class logindao {
 		
 }
 
-	public boolean register_doctor(String dname, String duname, String dpass, String dspec, String demail) {
+	public boolean register_doctor(String dname, String duname, String dpass, String dspec, String demail, String ds, String dmobile, String dsex) {
 		
 		try
 		{
 	
-			sql = "insert into doctorinfo values(NULL, ?, ?, ?, ?, ?);";
+			sql = "insert into doctorinfo values(NULL, ?, ?, ?, ?, ?, ?, ?, ?);";
 
 			PreparedStatement st=con.prepareStatement(sql);
 			
@@ -296,6 +296,9 @@ public class logindao {
 			st.setString(3, dpass);
 			st.setString(4, demail);
 			st.setString(5, dspec);
+			st.setString(6, ds);
+			st.setString(7, dmobile);
+			st.setString(8, dsex);
 			
 			st.executeUpdate();
 			
