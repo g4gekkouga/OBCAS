@@ -50,10 +50,10 @@ public class LoginP extends HttpServlet {
 			HttpSession session=request.getSession();
 			session.setAttribute("username",uname);
 			
-			response.sendRedirect("patientwelcome.jsp");
+			response.sendRedirect("patient.jsp");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("patientLogin.jsp?status=' Invalid Username or Password '");
 		}
 		
 		

@@ -65,6 +65,14 @@
 							Sign up
 						</a>
 					</div>
+					
+					<br>
+					
+					
+	 <h6 ><font color="red"><center><%out.println(request.getParameter("status"));%></center></font></h6>
+					
+					
+					
 				</form>
 			</div>
 		</div>

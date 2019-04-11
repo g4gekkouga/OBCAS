@@ -22,6 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
@@ -55,9 +56,12 @@
 	
 	</style>
  	
- 	<script src="js/jquery/jquery-2.2.4.min.js"></script>
-     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="js/jquery/jquery.autocomplete.js"></script>
+<script src="js/jquery/jquery-2.2.4.min.js"></script>  
+
+
+ 	     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 	     
+ 	     
      
      <script>
      function myFunction() {
@@ -78,6 +82,7 @@
     <div id="preloader">
         <div class="medilife-load"></div>
     </div>
+    
 
     <!-- ***** Header Area Start ***** -->
     <header class="header-area">
@@ -123,8 +128,11 @@
                                             <a class="nav-link" href="#124">PATIENT MESSAGE</a>
                                         </li>
                                         <li class="nav-item">
+                                            <a class="nav-link" href="#125">UPDATE DETAILS </a>
+                                        </li>
+                                        <li class="nav-item">
                                <!--             <button  type="button" class="btn medilife-btn" onclick="return confirm('Are you sure want to log out')" href="doctorLogin.jsp">Logout</button>   --> 
-                               					<a class="nav-link" href="doctorLogin.jsp" onclick="return confirm('Are you sure want to log out')">Logout</a>
+                               					<a class="nav-link" href="doctorLogin.jsp?status='Log out successful'" onclick="return confirm('Are you sure want to log out')">Logout</a>
                                         </li>
                                     </ul>
  
@@ -307,10 +315,20 @@
                                                
                                                 </div>
                                             </div>
-              -->                              
+                   -->                           
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_day_u" id="app_day_u" placeholder="Date">
+                                                <select class="form-control" id="app_doc_u" name="app_doc_u">
+                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>
+                                                </select>
+
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="app_day_u" id="app_day_u" onchange="get_timings(this.value, app_doc_u.value)" placeholder="Date">
                                                 </div>
                                             </div>
                                             
@@ -324,19 +342,45 @@
                                             
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_time_u" id="app_time_u" placeholder="HH:MM:SS">
+                                                    <input type="text" list="timings" class="form-control" name="app_time_u" id="app_time_u" placeholder="HH:MM:SS">
                                                 </div>
                                             </div>
                                             
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                <select class="form-control" id="app_doc_u" name="app_doc_u">
-                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
-                                                    <option><%= request.getParameter("doctor_name") %></option>option>
-                                                </select>
-
-                                                </div>
-                                            </div>
+                                            <datalist id="timings">
+													    <option value="Default">
+													  </datalist>
+													  
+													  <script>
+													  
+													  function get_timings(str1, str2) {
+															 
+					                                    	var xhttp = new XMLHttpRequest();
+					                                    	
+				
+														  
+					                                    	xhttp.onreadystatechange = function() {
+														    
+					                                    		if (this.readyState == 4 && this.status == 200) {
+														      
+					                                    			document.getElementById("timings").innerHTML =
+														      
+					                                    				this.responseText;
+														    
+					                                    		}
+														  
+					                                    	};
+														  
+					                                    	xhttp.open("GET", "send_timings.jsp?date="+str1+"&dname="+str2, true);
+														  
+					                                    	xhttp.send();
+														
+					                                    }
+													  
+													  
+													  
+													  </script>
+                                            
+                                            
            
                                             <div class="col-12 col-md-5 mb-0">
                                                 <div class="form-group mb-0">
@@ -418,14 +462,54 @@
                                       
                                    <form>
                                         <br>
+                                        
+                                        
+                                        
+                                        
+                                        
                                         <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname" id="pname" placeholder="Patient Name">
-                               
+                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" list="patient_names" name="pname" id="pname"   placeholder="Patient Name" >
+                               						 <datalist id="patient_names">
+													    <option value="Default">
+													  </datalist>
+													  
+													  <script>
+													  
+													  function get_names() {
+															 
+					                                    	var xhttp = new XMLHttpRequest();
+					                                    	
+				
+														  
+					                                    	xhttp.onreadystatechange = function() {
+														    
+					                                    		if (this.readyState == 4 && this.status == 200) {
+														      
+					                                    			document.getElementById("patient_names").innerHTML =
+														      
+					                                    				this.responseText;
+														    
+					                                    		}
+														  
+					                                    	};
+														  
+					                                    	xhttp.open("GET", "send_names.jsp", true);
+														  
+					                                    	xhttp.send();
+														
+					                                    }
+													  
+													  	get_names();
+													  
+													  
+													  </script>
+                               						
+                               						
                                                     <button  type="button" class="btn medilife-btn" onclick="view_info(pname.value)">View Info</button>
                                                 </div>
                                             </div>
-                                            
+                                           	
 
                                            
                                             
@@ -474,12 +558,22 @@
                                       
                                     <form>
                                         <br>
+                                        
+                                        <div class="col-12 col-md-4">
+                                                <div class="form-group">
+                                                <select class="form-control" id="dname_msg" name="dname_msg">
+                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
+                                                    <option><%= request.getParameter("doctor_name") %></option>
+                                                </select>
+
+                                                </div>
+                                            </div>
                           
                                			
                                			
                                			<div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="app_day_msg" id="app_day_msg" placeholder="Date">
+                                                    <input type="text" class="form-control" name="app_day_msg" id="app_day_msg" onchange="get_names2(this.value, dname_msg.value)" placeholder="Date">
                                                 </div>
                                             </div>
                                             
@@ -493,19 +587,47 @@
                                             
                                             <div class="col-12 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="pname_msg" id="pname_msg" placeholder="Patient Name">
+                                                    <input type="text" list="patient_names2" class="form-control border-top-0 border-right-0 border-left-0" name="pname_msg" id="pname_msg" placeholder="Patient Name">
                                					</div>
                                			</div>
+                               			 <datalist id="patient_names2">
+													    <option value="Default">
+													  </datalist>
+													  
+													  <script>
+													  
+													  function get_names2(str1, str2) {
+															 
+					                                    	var xhttp = new XMLHttpRequest();
+					                                    	
+				
+														  
+					                                    	xhttp.onreadystatechange = function() {
+														    
+					                                    		if (this.readyState == 4 && this.status == 200) {
+														      
+					                                    			document.getElementById("patient_names2").innerHTML =
+														      
+					                                    				this.responseText;
+														    
+					                                    		}
+														  
+					                                    	};
+														  
+					                                    	xhttp.open("GET", "send_namesDate.jsp?date="+str1+"&dname="+str2, true);
+														  
+					                                    	xhttp.send();
+														
+					                                    }
+													  
+													  
+													  
+													  </script>
+                               			
+                               			
+                               			
+                               			
                                             
-                                            <div class="col-12 col-md-4">
-                                                <div class="form-group">
-                                                <select class="form-control" id="dname_msg" name="dname_msg">
-                                                    <option disabled="disabled" selected="selected">Select Doctor</option>
-                                                    <option><%= request.getParameter("doctor_name") %></option>option>
-                                                </select>
-
-                                                </div>
-                                            </div>
            
                         
                                             
@@ -722,8 +844,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     
 
 
-    <!-- jQuery (Necessary for All JavaScript Plugins) -->
-    <script src="js/jquery/jquery-1.12.1.min.js"></script>
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->    
     <!-- Popper js -->
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap js -->

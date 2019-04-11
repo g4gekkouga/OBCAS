@@ -35,7 +35,7 @@ public class Login extends HttpServlet {
 			response.sendRedirect("adminwelcome.jsp?admin_name="+uname+"");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("adminLogin.jsp?status=' Invalid Username or Password '");
 		}
 		
 	}

@@ -43,13 +43,13 @@
 							</span>
 						</div>div>
                         <div class="p-t-10">
-                            <input type="button" class="btn btn--pill btn--green" value="Patient" onclick="window.location.href='patientLogin.jsp'" />
+                            <input type="button" class="btn btn--pill btn--green" value="Patient" onclick="window.location.href='patientLogin.jsp?status='" />
                         </div>
                         <div class="p-t-10">
-                            <input type="button" class="btn btn--pill btn--green" value="Doctor" onclick="window.location.href='doctorLogin.jsp'" />
+                            <input type="button" class="btn btn--pill btn--green" value="Doctor" onclick="window.location.href='doctorLogin.jsp?status='" />
                         </div>
                         <div class="p-t-10">
-                            <input type="button" class="btn btn--pill btn--green" value="Admin" onclick="window.location.href='adminLogin.jsp'" />
+                            <input type="button" class="btn btn--pill btn--green" value="Admin" onclick="window.location.href='adminLogin.jsp?status='" />
                         </div>
                     </form>
                 </div>

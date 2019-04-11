@@ -53,7 +53,7 @@ public class LoginD extends HttpServlet {
 			response.sendRedirect("doctorwelcome.jsp?doctor_name="+uname+"");
 		}
 		else {
-			response.sendRedirect("Home.jsp");
+			response.sendRedirect("doctorLogin.jsp?status=' Incorrect Username or Password '");
 		}
 		
 	}
